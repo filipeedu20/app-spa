@@ -1,14 +1,8 @@
 import React from "react";
-const contacts = [
-    { id: 1, name: 'Jon Snow', email: 'winterishere@jonsnow.com'},
-    { id: 2, name: 'Ygritte', email: 'youknownothing@jonsnow.com'},
-  ];
-export const Users = () => (
-    
+// import Users from "./components";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+export const Users = (match) => (
 <>
-
-
-
 {/* 
     REFERENCIAS:
     - https://codesandbox.io/s/react-router-example-5xos8
@@ -31,24 +25,23 @@ export const Users = () => (
                 <td>joao@email.com </td>
                 <td>30</td>
                 <td>
-                    <a hrerf=''>visualizar</a>
+                    <Link to={`${match.url}/João`}>visualizar</Link>
                 </td>
             </tr> 
             <tr>
                 <td>Alice</td>
                 <td>alice@email.com </td>
                 <td>29</td>
-                <td>
-                    {/* <Link to="/users/:1">Users</Link> */}
-                    <a hrerf=''>visualizar</a>
+                <td>                    
+                    <Link to={`${match.url}/Alice`}>visualizar</Link>
                 </td>
             </tr> 
             <tr>
                 <td>Pedro</td>
                 <td>pedro@email.com </td>
                 <td>20</td>
-                <td><a hrerf='#'>visualizar</a></td>
-            </tr>                                            
+                    <Link to={`${match.url}/Pedro`}>visualizar</Link>
+                </tr>                                            
         </table>
 </div>
 </>
