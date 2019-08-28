@@ -11,10 +11,7 @@ export function App() {
         </li>
         <li>
           <Link to="/users">Users</Link>
-        </li>
-        <li>
-          <Link to="/users_info">Users</Link>
-        </li>
+        </li>        
       </ul>
       <ApplicationRoutes />
     </div>
