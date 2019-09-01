@@ -1,14 +1,9 @@
 import React from "react";
 // import Users from "./components";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-export const Users = (match) => (
+import { BrowserRouter as  Route, Link } from "react-router-dom";
+export const Users = ({match}) => (
 <>
-{/* 
-    REFERENCIAS:
-    - https://codesandbox.io/s/react-router-example-5xos8
-    - https://reacttraining.com/react-router/web/guides/quick-start 
 
-*/}
 <div class="panel panel-default">
     <div class="panel-heading">Panel heading</div>
         <div class="panel-body">            
@@ -25,7 +20,8 @@ export const Users = (match) => (
                 <td>joao@email.com </td>
                 <td>30</td>
                 <td>
-                    <Link to={`${match.url}/João`}>visualizar</Link>
+                    <Link to={`${match.url}/rendering`}>Rendering with React</Link>
+                    {/* <Link to={`${match.url}/Alice`}>visualizar</Link> */}
                 </td>
             </tr> 
             <tr>
@@ -39,10 +35,23 @@ export const Users = (match) => (
             <tr>
                 <td>Pedro</td>
                 <td>pedro@email.com </td>
-                <td>20</td>
-                    <Link to={`${match.url}/Pedro`}>visualizar</Link>
+                <td>20</td>                    
                 </tr>                                            
-        </table>
-</div>
+        </table>          
+    </div>
+   <Route path={`${match.path}/:name`} component={UserItem} />
+      <Route
+        exact
+        path={match.path}
+        render={() => <h1>Please select a topic.</h1>}
+      />
 </>
 );
+
+
+export const UserItem = ({match}) => (    
+    <>
+        <h2>{match.params.name}</h2>
+    </>
+);    
+
